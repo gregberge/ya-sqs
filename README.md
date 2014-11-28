@@ -23,7 +23,7 @@ var queue = sqs.createQueue({
 
 // Push message in the queue.
 queue.push({foo: 'bar'}, function (err) {
-  console.log('Message pushed');
+  console.log('Message pushed.');
 });
 
 // Pull message.
@@ -45,7 +45,7 @@ var queue = sqs.createQueue({
 
 // Push message in the queue.
 queue.push({foo: 'bar'}).then(function () {
-  console.log('Message pushed');
+  console.log('Message pushed.');
 });
 
 // Pull message.
@@ -86,9 +86,9 @@ Promises:
 
 ```js
 queue.push('hello').then(function () {
-  console.log('message pushed');
+  console.log('Message pushed.');
 }, function (err) {
-  console.log('error during push');
+  console.log('Error during push.');
 });
 ```
 
@@ -96,8 +96,8 @@ Callback:
 
 ```js
 queue.push('hello', function (err) {
-  if (err) return console.log('error during push');
-  console.log('message pushed');
+  if (err) return console.log('Error during push.');
+  console.log('Message pushed.');
 });
 ```
 
@@ -109,7 +109,7 @@ Promises:
 
 ```js
 queue.pull(function (message) {
-  console.log('Message pulled', message);
+  console.log('Message pulled.', message);
   return Promise.resolve();
 });
 ```
@@ -118,7 +118,7 @@ Callback:
 
 ```js
 queue.pull(function (message, next) {
-  console.log('Message pulled', message);
+  console.log('Message pulled.', message);
   next();
 });
 ```
@@ -169,7 +169,7 @@ queue.on('message received', function (message) {
 Emitted when a message is processed. The message in argument is not parsed.
 
 ```js
-queue.on('message received', function (message) {
+queue.on('message processed', function (message) {
   // ...
 });
 ```
