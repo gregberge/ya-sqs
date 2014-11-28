@@ -1,0 +1,33 @@
+{
+  "name": "ya-sqs",
+  "version": "0.0.0",
+  "description": "Yet Another AWS SQS wrapper with pull (long polling), push, error management and promises.",
+  "main": "index.js",
+  "keywords": [
+    "sqs",
+    "aws",
+    "queue"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neoziro/ya-sqs.git"
+  },
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neoziro/ya-sqs/issues"
+  },
+  "homepage": "https://github.com/neoziro/ya-sqs",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.0.29",
+    "json-promise": "^1.1.8",
+    "promise": "^6.0.1"
+  }
+}
