@@ -9,7 +9,7 @@
     "queue"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "aws-sdk": "^2.0.29",
-    "json-promise": "^1.1.8",
     "promise": "^6.0.1"
   }
 }
