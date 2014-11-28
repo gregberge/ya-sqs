@@ -1,6 +1,6 @@
 {
   "name": "ya-sqs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Yet Another AWS SQS wrapper with pull (long polling), push, error management and promises.",
   "main": "index.js",
   "keywords": [
