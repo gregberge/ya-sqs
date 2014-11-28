@@ -3,6 +3,8 @@ var sqs = require('./index');
 var Promise = require('promise');
 
 describe('ya-sqs', function () {
+  this.timeout(4000);
+
   describe('#createQueue', function () {
     it('should return an error if a required parameter is missing', function () {
       expect(function () {
