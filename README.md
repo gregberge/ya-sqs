@@ -57,7 +57,7 @@ queue.pull(function (message, next) {
 
 ### sqs.createQueue(options)
 
-Create a new queue.
+Create a new queue. If you provide a name, the queue will be automatically created.
 
 ```
 {object} options
@@ -70,7 +70,7 @@ Create a new queue.
 
 ```js
 var queue = sqs.createQueue({
-  queueUrl: 'https://sqs.eu-west-1.amazonaws.com/279100839409/ya-sqs-test',
+  url: 'https://sqs.eu-west-1.amazonaws.com/279100839409/ya-sqs-test',
   waitTime: 10,
   aws: {
     region: 'eu-west',
