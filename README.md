@@ -17,8 +17,8 @@ npm install ya-sqs
 var sqs = require('ya-sqs');
 
 var queue = sqs.createQueue({
-  aws: {region: 'eu-west'},
-  queueUrl: 'https://sqs.eu-west-1.amazonaws.com/279100839409/ya-sqs-test'
+  aws: {region: 'eu-west-1'},
+  name: 'ya-sqs-test'
 });
 
 // Push message in the queue.
@@ -39,8 +39,8 @@ queue.pull(function (message, next) {
 var sqs = require('ya-sqs');
 
 var queue = sqs.createQueue({
-  aws: {region: 'eu-west'},
-  queueUrl: 'https://sqs.eu-west-1.amazonaws.com/279100839409/ya-sqs-test'
+  aws: {region: 'eu-west-1'},
+  name: 'ya-sqs-test'
 });
 
 // Push message in the queue.
@@ -61,7 +61,8 @@ Create a new queue.
 
 ```
 {object} options
-{string} options.queueUrl Url of the queue
+{string} [options.name] Name of the queue
+{string} [options.url] Url of the queue
 {string} [options.aws] AWS config
 {string} [options.waitTime=20] Polling time
 {string} [options.formatter] Formatter (default JSON)
