@@ -1,6 +1,5 @@
 var expect = require('chai').expect;
 var sqs = require('./index');
-var Promise = require('promise');
 var _ = require('lodash');
 
 describe('ya-sqs', function () {
