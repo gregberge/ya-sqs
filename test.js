@@ -32,8 +32,7 @@ describe('ya-sqs', function () {
             region: process.env.AWS_REGION,
             accessKeyId: process.env.AWS_ACCESS_KEY,
             secretAccessKey: process.env.AWS_SECRET
-          },
-          url: process.env.QUEUE_URL
+          }
         }));
       });
 
@@ -55,6 +54,25 @@ describe('ya-sqs', function () {
         return queue.push('test message');
       });
     }
+  });
+
+  describe('#queue.mpush', function () {
+    var queue;
+
+    before(function () {
+      queue = sqs.createQueue({
+        name: process.env.QUEUE_NAME,
+        aws: {
+          region: process.env.AWS_REGION,
+          accessKeyId: process.env.AWS_ACCESS_KEY,
+          secretAccessKey: process.env.AWS_SECRET
+        }
+      });
+    });
+
+    it('should push multiple messages', function (done) {
+      queue.mpush(['test message', 'test message'], done);
+    });
   });
 
   describe('#queue.pull', function () {

@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.0.29",
+    "lodash": "^2.4.1",
     "promise": "^6.0.1"
   }
 }

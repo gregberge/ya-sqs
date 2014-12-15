@@ -102,6 +102,29 @@ queue.push('hello', function (err) {
 });
 ```
 
+### queue.mpush(messages, [cb])
+
+Push message using batch method.
+
+Promises:
+
+```js
+queue.mpush(['hello', 'world']).then(function () {
+  console.log('Messages pushed.');
+}, function (err) {
+  console.log('Error during push.');
+});
+```
+
+Callback:
+
+```js
+queue.mpush(['hello', 'world'], function (err) {
+  if (err) return console.log('Error during push.');
+  console.log('Message pushed.');
+});
+```
+
 ### queue.pull(handler, [next])
 
 Pull message from the queue. When the promise returned is resolved or when next is called, the message will be remove and an other message will be pulled. If an error is sent, the error will be emitted and the message will not be removed.
