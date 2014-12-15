@@ -178,6 +178,16 @@ queue.on('error', function (err) {
 });
 ```
 
+### "message pushed"
+
+Emitted when a message is pushed. The message in argument is not parsed.
+
+```js
+queue.on('message pushed', function (message) {
+  // ...
+});
+```
+
 ### "message received"
 
 Emitted when a new message is received. The message in argument is not parsed.
