@@ -19,7 +19,7 @@ describe('ya-sqs', function () {
     });
 
     describe('with name', function () {
-      test({name: process.env.QUEUE_NAME});
+      test({name: randomQueueName()});
     });
 
     function test(options) {
@@ -60,7 +60,7 @@ describe('ya-sqs', function () {
 
     before(function () {
       queue = sqs.createQueue({
-        name: process.env.QUEUE_NAME,
+        name: randomQueueName(),
         aws: {
           region: process.env.AWS_REGION,
           accessKeyId: process.env.AWS_ACCESS_KEY,
@@ -80,7 +80,7 @@ describe('ya-sqs', function () {
     });
 
     describe('with name', function () {
-      test({name: process.env.QUEUE_NAME});
+      test({name: randomQueueName()});
     });
 
     function test(options) {
@@ -113,3 +113,13 @@ describe('ya-sqs', function () {
     }
   });
 });
+
+/**
+ * Generate a random queue name.
+ *
+ * @returns {string}
+ */
+
+function randomQueueName() {
+  return process.env.QUEUE_NAME + Date.now();
+}
