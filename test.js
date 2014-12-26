@@ -145,5 +145,5 @@ describe('ya-sqs', function () {
  */
 
 function randomQueueName() {
-  return process.env.QUEUE_NAME + Date.now();
+  return process.env.QUEUE_NAME + Math.round(Math.random() * 100000);
 }
