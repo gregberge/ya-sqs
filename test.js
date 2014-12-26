@@ -76,11 +76,7 @@ describe('ya-sqs', function () {
   });
 
   describe('#queue.pull', function () {
-    describe('with url', function () {
-      test({url: process.env.QUEUE_URL});
-    });
-
-    describe('with name', function () {
+    describe('using callback', function () {
       test({name: randomQueueName()});
     });
 
