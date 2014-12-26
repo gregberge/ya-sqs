@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var sqs = require('./index');
 var _ = require('lodash');
+var Promise = require('promise');
 
 describe('ya-sqs', function () {
   this.timeout(4000);
@@ -83,7 +84,11 @@ describe('ya-sqs', function () {
       test({name: randomQueueName()});
     });
 
-    function test(options) {
+    describe('using promise', function () {
+      test({name: randomQueueName()}, true);
+    });
+
+    function test(options, usePromise) {
       var queue;
 
       beforeEach(function () {
@@ -96,20 +101,43 @@ describe('ya-sqs', function () {
         }));
       });
 
-      beforeEach(function () {
-        return queue.push('test message');
-      });
+      if (!usePromise) {
+        it('should pull message', function (done) {
+          var messages = ['first message', 'second message'];
+          var idx = 0;
 
-      it('should pull message', function (done) {
-        queue.once('message processed', function () {
-          done();
-        });
+          queue.push(messages[0]);
 
-        queue.pull(function (message, next) {
-          expect(message).to.equal('test message');
-          next();
+          queue.on('message processed', function () {
+            if (idx === 1) return done();
+            idx++;
+            queue.push(messages[idx]);
+          });
+
+          queue.pull(function (message, next) {
+            expect(message).to.equal(messages[idx]);
+            next();
+          });
         });
-      });
+      } else {
+        it('should pull message (using promise)', function (done) {
+          var messages = ['first message', 'second message'];
+          var idx = 0;
+
+          queue.push(messages[0]);
+
+          queue.on('message processed', function () {
+            if (idx === 1) return done();
+            idx++;
+            queue.push(messages[idx]);
+          });
+
+          queue.pull(function (message) {
+            expect(message).to.equal(messages[idx]);
+            return Promise.resolve();
+          });
+        });
+      }
     }
   });
 });
