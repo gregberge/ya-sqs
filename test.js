@@ -15,25 +15,18 @@ describe('ya-sqs', function () {
   });
 
   describe('#queue.push', function () {
-    describe('with url', function () {
-      test({url: process.env.QUEUE_URL});
-    });
-
     describe('with name', function () {
-      test({name: randomQueueName()});
-    });
-
-    function test(options) {
       var queue;
 
       before(function () {
-        queue = sqs.createQueue(_.defaults(options, {
+        queue = sqs.createQueue({
+          name: randomQueueName(),
           aws: {
             region: process.env.AWS_REGION,
             accessKeyId: process.env.AWS_ACCESS_KEY,
             secretAccessKey: process.env.AWS_SECRET
           }
-        }));
+        });
       });
 
       it('should return an error if the message can\'t be serialized', function (done) {
@@ -53,7 +46,7 @@ describe('ya-sqs', function () {
       it('should push a new message in the queue (promise)', function () {
         return queue.push('test message');
       });
-    }
+    });
   });
 
   describe('#queue.mpush', function () {

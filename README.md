@@ -129,9 +129,16 @@ queue.mpush(['hello', 'world'], function (err) {
 });
 ```
 
-### queue.pull(handler, [next])
+### queue.pull(handler, [options])
 
 Pull message from the queue. When the promise returned is resolved or when next is called, the message will be remove and an other message will be pulled. If an error is sent, the error will be emitted and the message will not be removed.
+
+Options:
+
+```
+@param {object} [options]
+@param {number} [options.maxNumberOfMessages=10] Max number of messages
+```
 
 Promises:
 
