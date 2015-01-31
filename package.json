@@ -23,12 +23,11 @@
   "homepage": "https://github.com/neoziro/ya-sqs",
   "devDependencies": {
     "chai": "^1.10.0",
-    "lodash": "^2.4.1",
     "mocha": "^2.0.1"
   },
   "dependencies": {
     "aws-sdk": "^2.0.29",
-    "lodash": "^2.4.1",
+    "lodash": "^3.0.1",
     "promise": "^6.0.1"
   }
 }
