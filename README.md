@@ -53,7 +53,7 @@ queue.push({foo: 'bar'}).then(function () {
 });
 
 // Pull message.
-queue.pull(function (message, next) {
+queue.pull(function (message) {
   console.log('Message pulled.');
   return Promise.resolve(); // Remove message from queue and pull next.
 });
