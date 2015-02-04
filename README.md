@@ -158,6 +158,14 @@ queue.pull(function (message, next) {
 });
 ```
 
+### queue.close([cb])
+
+Stop pulling events, the promise is resolved when current messages have been processed.
+
+```js
+queue.close().then(...);
+```
+
 ## Formatters
 
 The default formatter for the queue is JSON, you can write a custom formatter for messages. To do it, please refer to the [JSON formatter](https://github.com/neoziro/ya-sqs/blob/master/lib/json-formatter.js).
