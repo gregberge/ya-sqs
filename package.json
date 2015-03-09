@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/neoziro/ya-sqs",
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^2.1.1",
     "mocha": "^2.0.1"
   },
   "dependencies": {
